@@ -4,7 +4,6 @@ package com.example.myfirstapp;
 * 这个服务用来演示使用startService方法创建并启动服务
 * */
 
-
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
@@ -17,28 +16,16 @@ public class MyService extends Service {
         super();
     }
 
-//    public class MyRunnable implements Runnable{
-//        @Override
-//        public void run() {
-//            while (true){
-//                try {
-//                    //Toast.makeText(this, "服务运行中。。。", Toast.LENGTH_SHORT).show();
-//                    Log.i(MainActivity.TAG_MYAPP, "Service running...");
-//                    Thread.sleep(500);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }
-//    }
-
+    //在MyService里添加子线程, 用于执行耗时操作, 通过继承Thread类并重写run()方法实现.
     public void goThread(){
+        //开启线程, 没有线程时创建线程
         if(null == myThread){
             myThread = new MyThread();
         }
         myThread.start();
     }
     private void stopThread() {
+        //打断线程, 首先判断线程是否存活, 然后进行打断并置空
         if(null != myThread && myThread.isAlive()){
             myThread.interrupt();
             myThread = null;
@@ -63,7 +50,7 @@ public class MyService extends Service {
             }
         }
     }
-
+    //创建线程实例
     MyThread myThread = new MyThread();
 
     @Override
@@ -79,6 +66,7 @@ public class MyService extends Service {
 
     @Override
     public IBinder onBind(Intent intent) {
+        //组件使用绑定的方式启动服务时, 该方法被调用
         Log.i(MainActivity.TAG_MYAPP, "MyService onBind!");
         Toast.makeText(this, "服务绑定启动!", Toast.LENGTH_SHORT).show();
         return new MyBinder(this);
@@ -87,25 +75,10 @@ public class MyService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         //这个方法紧接在onCreate()方法后, 在这个方法里执行service主要做的事
-
         Toast.makeText(this, "服务创建启动!", Toast.LENGTH_SHORT).show();
         Log.i(MainActivity.TAG_MYAPP, "MyService onStartCommand runs!");
-
-//        for (int i = 0; i < 10; i++) {
-//            try {
-//                //Toast.makeText(this, "服务运行中。。。", Toast.LENGTH_SHORT).show();
-//                Log.i(MainActivity.TAG_MYAPP, "Service running...");
-//                Thread.sleep(500);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        Toast.makeText(this, "服务即将停止。。。", Toast.LENGTH_SHORT).show();
-//        stopSelf();
-
         return super.onStartCommand(intent, flags, startId);
     }
-
 
     @Override
     public void onDestroy() {
