@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.i(TAG_MYAPP, "onCreate method runs!");
+        Log.i(TAG_MYAPP, "MainActivity onCreate method runs!");
     }
 
     public void sendMessage(View view) {
@@ -27,28 +27,43 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void startService(View view){
+        startService(new Intent(getBaseContext(), MyService.class));
+    }
+
+    public void stopService(View view){
+        stopService(new Intent(getBaseContext(), MyService.class));
+    }
+
+
+//    public void sendMessage(View view) {
+//        Intent intent = new Intent(Intent.ACTION_SEND);
+//        intent.putExtra(Intent.EXTRA_EMAIL, "wangyoupeng@oppo.com");
+//        startActivity(intent);
+//    }
+
     @Override
     protected void onStart() {
         super.onStart();
-        Log.i(TAG_MYAPP, "onStart method runs!!");
+        Log.i(TAG_MYAPP, "MainActivity onStart method runs!!");
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        Log.i(TAG_MYAPP, "onRestart method runs!!");
+        Log.i(TAG_MYAPP, "MainActivity onRestart method runs!!");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.i(TAG_MYAPP, "onResume method runs!!");
+        Log.i(TAG_MYAPP, "MainActivity onResume method runs!!");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.i(TAG_MYAPP, "onPause method runs!!!");
+        Log.i(TAG_MYAPP, "MainActivity onPause method runs!!!");
     }
 
     @Override
@@ -61,12 +76,12 @@ public class MainActivity extends AppCompatActivity {
         if (!message.equals("")){
             Log.i(TAG_MYAPP, message);
         }
-        Log.i(TAG_MYAPP, "onStop method runs!!!!");
+        Log.i(TAG_MYAPP, "MainActivity onStop method runs!!!!");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.i(TAG_MYAPP, "onDestroy method runs!!!!!");
+        Log.i(TAG_MYAPP, "MainActivity onDestroy method runs!!!!!");
     }
 }
