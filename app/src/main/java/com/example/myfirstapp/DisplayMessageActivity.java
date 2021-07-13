@@ -1,5 +1,11 @@
 package com.example.myfirstapp;
 
+/*
+ * 第二个活动,该活动可以显示从第一个活动传来的intent里面的字符串，同时
+ * 该活动绑定了一个Service(MyServiceBind), 该service会随着该活动
+ * 的销毁而销毁.
+ * */
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ComponentName;

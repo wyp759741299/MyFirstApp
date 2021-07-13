@@ -1,5 +1,10 @@
 package com.example.myfirstapp;
 
+
+/*
+* 这个服务被绑定到第二个活动上.
+* */
+
 import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;

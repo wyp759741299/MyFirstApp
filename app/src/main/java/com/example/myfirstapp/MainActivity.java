@@ -1,5 +1,9 @@
 package com.example.myfirstapp;
 
+/*
+* 主活动
+* */
+
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,12 +31,17 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void community(View view){
+        Intent intent = new Intent(this, AnotherActivityForBindService.class);
+        startActivity(intent);
+    }
+
     public void startService(View view){
-        startService(new Intent(getBaseContext(), MyService.class));
+        startService(new Intent(this, MyService.class));
     }
 
     public void stopService(View view){
-        stopService(new Intent(getBaseContext(), MyService.class));
+        stopService(new Intent(this, MyService.class));
     }
 
 
