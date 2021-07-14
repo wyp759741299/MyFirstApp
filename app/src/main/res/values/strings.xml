@@ -3,5 +3,7 @@
     <string name="edit_message">Enter a message</string>
     <string name="button_send">Send</string>
     <string name="TAG_MYAPP">MyFirstApp</string>
-    <string name="Community">没有共产党就没有新中国</string>
+    <string name="Community1">没有共产党</string>
+    <string name="Community2">就没有新中国</string>
+    <string name="People">人民万岁</string>
 </resources>

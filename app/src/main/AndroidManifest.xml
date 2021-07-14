@@ -9,12 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFirstApp">
+        <service
+            android:name=".MyServiceForIPC"
+            android:enabled="true"
+            android:exported="true"></service>
 
         <activity android:name=".AnotherActivityForBindService" />
 
-        <service
-            android:name=".MyIntentService"
-            android:exported="false" />
         <service
             android:name=".MyServiceBind"
             android:enabled="true"

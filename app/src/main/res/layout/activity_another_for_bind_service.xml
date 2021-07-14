@@ -8,16 +8,31 @@
     tools:context=".AnotherActivityForBindService">
 
     <Button
+        android:id="@+id/button8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:onClick="unBindService"
+        android:text="@string/Community2"
+        android:textColor="#FF0000"
+        android:textSize="20sp"
+        app:backgroundTint="#FFE500"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button5" />
+
+    <Button
         android:id="@+id/button5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:onClick="bindService"
-        android:text="@string/Community"
+        android:text="@string/Community1"
         android:textColor="#FF0000"
         android:textSize="20sp"
         app:backgroundTint="#FFE500"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

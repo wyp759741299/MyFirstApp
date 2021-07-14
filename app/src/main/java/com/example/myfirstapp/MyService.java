@@ -17,7 +17,7 @@ public class MyService extends Service {
     }
 
     //在MyService里添加子线程, 用于执行耗时操作, 通过继承Thread类并重写run()方法实现.
-    public void goThread(){
+    private void goThread(){
         //开启线程, 没有线程时创建线程
         if(null == myThread){
             myThread = new MyThread();
@@ -32,14 +32,16 @@ public class MyService extends Service {
         }
     }
 
-    public class MyThread extends Thread{
+    private class MyThread extends Thread{
         @Override
         public void run() {
             super.run();
             // 判断状态，如果被打断则跳出并将线程置空
             while (!isInterrupted()){
-                Log.i(MainActivity.TAG_MYAPP, "Service running...");
+                Log.i(MainActivity.TAG_MYAPP, "中国万岁!");
                 try {
+                    Thread.sleep(500);
+                    Log.i(MainActivity.TAG_MYAPP, "人民万岁!");
                     Thread.sleep(500);
                 } catch (InterruptedException e) {
                     //判断线程是否有异常抛出, 抛出则打断
