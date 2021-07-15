@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFirstApp">
         <service
-            android:name=".MyServiceForIPC"
+            android:name=".MyServiceStudent"
             android:enabled="true"
             android:exported="true"></service>
+        <service
+            android:name=".MyServiceForIPC"
+            android:enabled="true"
+            android:exported="true" />
 
         <activity android:name=".AnotherActivityForBindService" />
 

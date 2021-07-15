@@ -24,9 +24,6 @@ public class MyServiceForIPC extends Service {
         }
     };
 
-//    public MyServiceForIPC() {
-//    }
-
     @Override
     public IBinder onBind(Intent intent) {
         //Stub继承了Binder, 因此是Binder类型
