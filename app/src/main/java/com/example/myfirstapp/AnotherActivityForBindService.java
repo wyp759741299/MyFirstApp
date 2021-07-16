@@ -92,7 +92,10 @@ public class AnotherActivityForBindService extends AppCompatActivity {
         public void onServiceConnected(ComponentName name, IBinder service) {
             StudentServer server = StudentServer.Stub.asInterface(service);
             try {
+                Student student = new Student("Arthur", 24);
                 server.getStudentInfo(2, new Student("Arthur", 24));
+                Log.i(MainActivity.TAG_MYAPP, "Changed the message received? from server: "
+                        + " name: " + student.getName() + ", age: " + student.getAge() + ". ");
             } catch (RemoteException e) {
 
             }
